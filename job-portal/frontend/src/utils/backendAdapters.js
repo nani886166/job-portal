@@ -36,7 +36,9 @@ export const getMediaUrl = (path) => {
     return value;
   }
 
-  const apiBase = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000/api";
+  const apiBase =
+    import.meta.env.VITE_API_BASE_URL ||
+    "https://job-portal-production-1bb1.up.railway.app/api";
   const backendOrigin = apiBase.replace(/\/api\/?$/, "");
   return `${backendOrigin}${String(value).startsWith("/") ? value : `/${value}`}`;
 };

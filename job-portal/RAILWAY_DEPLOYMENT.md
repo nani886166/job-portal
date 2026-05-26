@@ -9,7 +9,7 @@ DEBUG=False
 SECRET_KEY=replace-with-a-long-random-secret
 ALLOWED_HOSTS=.railway.app,.up.railway.app
 CSRF_TRUSTED_ORIGINS=https://*.railway.app,https://*.up.railway.app
-CORS_ALLOWED_ORIGINS=https://your-frontend-domain.com
+CORS_ALLOWED_ORIGINS=https://dynamic-job-portal.vercel.app
 CORS_ALLOW_ALL_ORIGINS=False
 EMAIL_HOST_USER=your-email@gmail.com
 EMAIL_HOST_PASSWORD=your-gmail-app-password
@@ -17,6 +17,16 @@ DEFAULT_FROM_EMAIL=JobPortal <your-email@gmail.com>
 ```
 
 Add a Railway PostgreSQL database to the project. Railway will provide `DATABASE_URL` automatically.
+
+## Frontend variables on Vercel
+
+Set this in the Vercel frontend project variables:
+
+```env
+VITE_API_BASE_URL=https://job-portal-production-1bb1.up.railway.app/api
+```
+
+Redeploy the Vercel frontend after changing this variable.
 
 ## Deploy behavior
 

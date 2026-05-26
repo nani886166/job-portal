@@ -92,7 +92,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'backend.urls'
 CORS_ALLOWED_ORIGINS = env_list(
     "CORS_ALLOWED_ORIGINS",
-    "http://localhost:5173,http://127.0.0.1:5173,https://frontend-job-portal-six.vercel.app",
+    "http://localhost:5173,http://127.0.0.1:5173,https://dynamic-job-portal.vercel.app,https://frontend-job-portal-six.vercel.app",
 )
 CORS_ALLOW_ALL_ORIGINS = env_bool("CORS_ALLOW_ALL_ORIGINS", default=False)
 CSRF_TRUSTED_ORIGINS = env_list(
