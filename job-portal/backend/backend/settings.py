@@ -54,6 +54,17 @@ ALLOWED_HOSTS = env_list(
     "localhost,127.0.0.1,testserver,.railway.app,.up.railway.app",
 )
 
+if os.getenv("RAILWAY_ENVIRONMENT") or os.getenv("RAILWAY_ENVIRONMENT_NAME"):
+    railway_healthcheck_hosts = [
+        "localhost",
+        "127.0.0.1",
+        "[::1]",
+        ".railway.app",
+        ".up.railway.app",
+        ".railway.internal",
+    ]
+    ALLOWED_HOSTS = list(dict.fromkeys([*ALLOWED_HOSTS, *railway_healthcheck_hosts]))
+
 
 # Application definition
 

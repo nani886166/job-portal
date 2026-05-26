@@ -7,7 +7,7 @@ Set these in the Railway service variables:
 ```env
 DEBUG=False
 SECRET_KEY=replace-with-a-long-random-secret
-ALLOWED_HOSTS=.railway.app,.up.railway.app
+ALLOWED_HOSTS=localhost,127.0.0.1,.railway.app,.up.railway.app,.railway.internal,job-portal-production-1bb1.up.railway.app
 CSRF_TRUSTED_ORIGINS=https://*.railway.app,https://*.up.railway.app
 CORS_ALLOWED_ORIGINS=https://dynamic-job-portal.vercel.app
 CORS_ALLOW_ALL_ORIGINS=False
@@ -17,6 +17,10 @@ DEFAULT_FROM_EMAIL=JobPortal <your-email@gmail.com>
 ```
 
 Add a Railway PostgreSQL database to the project. Railway will provide `DATABASE_URL` automatically.
+
+If the deploy still fails at the healthcheck step, check Railway's runtime logs
+instead of only the build logs. The build can succeed while Gunicorn crashes at
+startup because of a missing variable, bad database URL, or host validation.
 
 ## Frontend variables on Vercel
 

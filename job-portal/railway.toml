@@ -4,8 +4,8 @@ buildCommand = "python backend/manage.py collectstatic --noinput"
 
 [deploy]
 preDeployCommand = "python backend/manage.py migrate"
-startCommand = "gunicorn --chdir backend backend.wsgi:application --bind 0.0.0.0:$PORT"
+startCommand = "gunicorn --chdir backend backend.wsgi:application --bind 0.0.0.0:$PORT --access-logfile - --error-logfile - --timeout 120"
 healthcheckPath = "/health/"
-healthcheckTimeout = 100
+healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
